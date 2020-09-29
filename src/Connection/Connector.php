@@ -193,8 +193,7 @@ class Connector implements ConnectorInterface
             'refresh_token' => $this->session->get('refreshToken'),
             'access_token' => $this->session->get('accessToken'),
         ]);
-        $url = uri_for($this->config['accounts'])
-            ->withPath($this->config['revoke_url'])
+        $url = uri_for($this->config['revoke_url'])
             ->__toString();
         foreach ($revocations as $type => $token) {
             $options = ['form_params' => [
