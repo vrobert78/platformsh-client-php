@@ -89,6 +89,7 @@ class Connector implements ConnectorInterface
           'cache' => false,
           'revoke_url' => 'https://auth.api.platform.sh/oauth2/revoke',
           'token_url' => 'https://auth.api.platform.sh/oauth2/token',
+          'auth_url' => 'https://auth.api.platform.sh',
           'certifier_url' => 'https://ssh.api.platform.sh',
           'proxy' => null,
           'api_token' => null,
@@ -269,7 +270,7 @@ class Connector implements ConnectorInterface
         return $this->provider ? $this->provider : new Platformsh([
           'clientId' => $this->config['client_id'],
           'clientSecret' => $this->config['client_secret'],
-          'base_uri' => $this->config['accounts'],
+          'base_uri' => $this->config['auth_url'],
           'debug' => $this->config['debug'],
           'verify' => $this->config['verify'],
           'proxy' => $this->config['proxy'],
